@@ -3,11 +3,23 @@ package com.jaume.penjat;
 public class Tauler {
 
     String paraulaSecreta;
+    String letra;
+    String paraula;
+    Integer intents;
+    public void inicialitzarPartida(String paraula, Integer intents) {
+this.paraula=paraula;
+this.intents=intents;
+    }
 
     public boolean hasGuanyat() {
+        if (paraulaSecreta==paraula) {
+        return true;
+        }else
+        return false;
     }
 
     public boolean imprimir() {
+     return
     }
 
     public String verificar(String letra) {
@@ -37,11 +49,8 @@ public class Tauler {
         private void restarIntent() {
         }
 
-        public boolean verificar(String letra) {
-        }
 
-        public void inicialitzarPartida(String paraula, int parseInt) {
-        }
+
 
         public boolean imprimirVides() {
         }
@@ -57,6 +66,7 @@ public class Tauler {
     }
 
     private void restarIntent() {
+
     }
 
     public void inicialitzarPartida(String paraula, int parseInt) {
