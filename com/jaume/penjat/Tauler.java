@@ -67,6 +67,7 @@ public class Tauler {
                 System.out.print(palabraEndevinada[i]);
             }
         }
+        return 0;
     }
 
             /*TODO siento que a verificar le falta algo más... Si te fijas, hay un else y luego un for... Quiza es demasiado largo Y DEBERIAMOS DIVIDIRLO EN DOS VERIFICAR??? */
