@@ -6,15 +6,21 @@ public class Tauler {
     String letra;
     String paraula;
     Integer intents;
+
+    public void reiniciar() {
+
+    }
+
     public void inicialitzarPartida(String paraula, Integer intents) {
-this.paraula=paraula;
-this.intents=intents;
+        this.paraula=paraula;
+        this.intents=intents;
+
     }
 
     public boolean hasGuanyat() {
         if (paraulaSecreta==paraula) {
-        return true;
-        }else
+            return true;
+        } else
         return false;
     }
 
@@ -28,29 +34,19 @@ this.intents=intents;
         } else {
             boolean exist = false;
 
-
                 for (int i = 0; i < paraulaSecreta.length(); i++) {
-
                     if (paraulaSecreta[i] == letra.charAt(0)) {
                         exist = true;
                         String[] palabraEndevinada;
                         palabraEndevinada[i] = letra;
                     }
                 }
-
                 if (!exist) {
                     restarIntent();
                 }
-
             }
             return "";
         }
-
-        private void restarIntent() {
-        }
-
-
-
 
         public boolean imprimirVides() {
         }
@@ -63,13 +59,9 @@ this.intents=intents;
 
         public Object[] getPalabraEndevinada() {
         }
-    }
 
-    private void restarIntent() {
+        private void restarIntent() {
+        }
 
-    }
-
-    public void inicialitzarPartida(String paraula, int parseInt) {
-    }
 
 }
