@@ -1,8 +1,9 @@
 package com.jaume.penjat;
 
 public class Tauler {
+
     String paraulaSecreta;
-}
+
     public boolean hasGuanyat() {
     }
 
@@ -15,7 +16,6 @@ public class Tauler {
         } else {
             boolean exist = false;
 
-            for (int i = 0; i < paraulaSecreta.length()) {
 
                 for (int i = 0; i < paraulaSecreta.length(); i++) {
 
@@ -61,3 +61,5 @@ public class Tauler {
 
     public void inicialitzarPartida(String paraula, int parseInt) {
     }
+
+}
