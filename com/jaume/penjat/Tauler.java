@@ -93,7 +93,7 @@ public class Tauler {
                 }
                 return "";
             }
-
+//aloha
         /*TODO no entiendo porque pero no me coge el restarIntent grrrrr ALOMEJOR DEBE IR DENTRO O ANTES?*/
         private void restarIntent () {
             if (letra == palabraEndevinada) {
