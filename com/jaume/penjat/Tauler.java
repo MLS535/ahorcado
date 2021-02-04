@@ -11,18 +11,18 @@ import java.util.ArrayList;
 
 public class Tauler {
 
-    public char[] letra;
+    public String letra;
     public String paraula;
     public Integer intents;
-    public String[] paraulaSecreta = paraula.split("");
-    public String[] palabraEndevinada = paraula.split("");
+    //public String[] paraulaSecreta = paraula.split("");
+    //public String[] palabraEndevinada = paraula.split("");
 
-    public Tauler(char[] letra, String paraula, Integer intents, String[] paraulaSecreta, String[] palabraEndevinada) {
+    public Tauler(String letra, String paraula, Integer intents, String[] paraulaSecreta, String[] palabraEndevinada) {
         this.letra = letra;
         this.paraula = paraula;
         this.intents = intents;
-        this.paraulaSecreta = paraulaSecreta;
-        this.palabraEndevinada = palabraEndevinada;
+        //this.paraulaSecreta = paraulaSecreta;
+        //this.palabraEndevinada = palabraEndevinada;
     }
 
     //getters de los atributos
@@ -30,7 +30,7 @@ public class Tauler {
         return paraulaSecreta;
     }
 
-    public char[] getLetra() {
+    public String getLetra() {
         return letra;
     }
 
@@ -46,13 +46,16 @@ public class Tauler {
         return palabraEndevinada;
     }
 
+    //setters
+    public void setParaula(String paraula){this.paraula=paraula;}
+    public void setIntents(Integer intents){this.intents=intents;}
     /*TODO He creado el constructor pero da problemas :( puedes borrarlo si te da rabia*/
 
 
     /*TODO aquí sinceramente no tengo ni idea de que poner para iniciar la partida */
     public void inicialitzarPartida(String paraula, Integer intents) {
-        this.paraula = paraula;
-        this.intents = intents;
+        this.setParaula(paraula);
+        this.setIntents(intents);
     }
 
     public boolean hasGuanyat() {
@@ -76,8 +79,9 @@ public class Tauler {
             /*TODO siento que a verificar le falta algo más... Si te fijas, hay un else y luego un for... Quiza es demasiado largo Y DEBERIAMOS DIVIDIRLO EN DOS VERIFICAR??? */
             public String verificar (String letra)
             {
-                if (letra.length() > 1) {
-                    return ("Lletra incorrecta! :(");
+                //String letraEnviada=setLetra(letra)
+                if (letraEnviada.length() > 1) {
+                    return ("Lletra incorrecta");
                 } else {
                     boolean exist = false;
 
@@ -98,14 +102,16 @@ public class Tauler {
             }
 //aloha
         /*TODO no entiendo porque pero no me coge el restarIntent grrrrr ALOMEJOR DEBE IR DENTRO O ANTES?*/
-        private void restarIntent () {
-            for (j = 0; )
-            if (letra == palabraEndevinada[i] ) {
+        private Integer restarIntent () {
+            //necesitamos la palabra (palabraEndevinada = this.getPalabra())
+            for (int j = 0; j<)
+            if (letra == palabraEndevinada[j] ) {
                 System.out.println("No has fallado la respuesta es correcta");
             } else {
                 Integer restar = Integer.parseInt(String.valueOf(intents)) - 1;
                 System.out.println("Has fallado y tienes" + restar);
             }
+
         }
         /*TODO Esta mal, pero debería ser te quedan intents X de X. me molaria coger restarIntent para aprovecharlo... Pero no se como hacerlo */
         public boolean imprimirVides() {
