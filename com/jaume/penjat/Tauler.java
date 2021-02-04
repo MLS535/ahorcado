@@ -11,14 +11,22 @@ import java.util.ArrayList;
 
 public class Tauler {
 
-    char[] letra;
-    String paraula;
-    Integer intents;
-    String[] paraulaSecreta = paraula.split("");
-    String[] palabraEndevinada = paraula.split("");
+    public char[] letra;
+    public String paraula;
+    public Integer intents;
+    public String[] paraulaSecreta = paraula.split("");
+    public String[] palabraEndevinada = paraula.split("");
+
+    public Tauler(char[] letra, String paraula, Integer intents, String[] paraulaSecreta, String[] palabraEndevinada) {
+        this.letra = letra;
+        this.paraula = paraula;
+        this.intents = intents;
+        this.paraulaSecreta = paraulaSecreta;
+        this.palabraEndevinada = palabraEndevinada;
+    }
 
     //getters de los atributos
-    public String getParaulaSecreta() {
+    public String[] getParaulaSecreta() {
         return paraulaSecreta;
     }
 
@@ -39,13 +47,7 @@ public class Tauler {
     }
 
     /*TODO He creado el constructor pero da problemas :( puedes borrarlo si te da rabia*/
-    public Tauler(String paraulaSecreta, char[] letra, String paraula, Integer intents, String[] palabraEndevinada) {
-        this.paraulaSecreta = paraulaSecreta;
-        this.letra = letra;
-        this.paraula = paraula;
-        this.intents = intents;
-        this.palabraEndevinada = palabraEndevinada;
-    }
+
 
     /*TODO aquí sinceramente no tengo ni idea de que poner para iniciar la partida */
     public void inicialitzarPartida(String paraula, Integer intents) {
@@ -54,7 +56,7 @@ public class Tauler {
     }
 
     public boolean hasGuanyat() {
-        if (paraulaSecreta == paraula) {
+        if (paraulaSecreta == palabraEndevinada) {
             return true;
         } else
             return false;
@@ -75,15 +77,14 @@ public class Tauler {
             public String verificar (String letra)
             {
                 if (letra.length() > 1) {
-                    return System.out.print("Lletra incorrecta! :(");
+                    return ("Lletra incorrecta! :(");
                 } else {
                     boolean exist = false;
 
-                    for (int j = 0; j < paraulaSecreta.length(); j++) {
+                    for (int j = 0; j < paraulaSecreta.length; j++) {
 
                         if (paraulaSecreta[j] == letra.charAt(0)) {
                             exist = true;
-                            String[] palabraEndevinada = new palabraEndevinada[0]; //me obliga a crear esto si no me da error
                             palabraEndevinada[j] = letra;
                         }
                     }
