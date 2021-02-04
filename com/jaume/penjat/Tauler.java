@@ -7,13 +7,15 @@ package com.jaume.penjat;
 * - Intents es string pero lo convierte a Integer tengo dudas ajajajja
 * - Por último, letra que será? ajajajja No tengo ni idea*/
 
+import java.util.ArrayList;
+
 public class Tauler {
 
-    String paraulaSecreta;
     char[] letra;
     String paraula;
     Integer intents;
-    String[] palabraEndevinada;
+    String[] paraulaSecreta = paraula.split("");
+    String[] palabraEndevinada = paraula.split("");
 
     //getters de los atributos
     public String getParaulaSecreta() {
@@ -73,7 +75,7 @@ public class Tauler {
             public String verificar (String letra)
             {
                 if (letra.length() > 1) {
-                    return System.out.print("Lletra incorrecte");
+                    return System.out.print("Lletra incorrecta! :(");
                 } else {
                     boolean exist = false;
 
@@ -96,7 +98,8 @@ public class Tauler {
 //aloha
         /*TODO no entiendo porque pero no me coge el restarIntent grrrrr ALOMEJOR DEBE IR DENTRO O ANTES?*/
         private void restarIntent () {
-            if (letra == palabraEndevinada) {
+            for (j = 0; )
+            if (letra == palabraEndevinada[i] ) {
                 System.out.println("No has fallado la respuesta es correcta");
             } else {
                 Integer restar = Integer.parseInt(String.valueOf(intents)) - 1;
