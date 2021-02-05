@@ -34,7 +34,6 @@ public class Tauler {
     //setters
     public void setParaula(String paraula) {
         this.paraula = paraula;
-        char parauladividida = paraula.charAt(0);
     }
 
     public void setIntents(Integer intents) {
@@ -48,6 +47,7 @@ public class Tauler {
 
 
     public void inicialitzarPartida(String paraula, Integer intents) {
+        char parauladividida = paraula.charAt(0);
         this.setParaula(paraula);
         this.setIntents(intents);
     }
@@ -101,7 +101,7 @@ public class Tauler {
 
     /*TODO no entiendo porque pero no me coge el restarIntent grrrrr ALOMEJOR DEBE IR DENTRO O ANTES?*/
     private Integer restarIntent() {
-             = this.getParaula();
+             x = this.getParaula();
             if (letra == palabraEndevinada[j]) {
                 System.out.println("No has fallado la respuesta es correcta");
             } else {
