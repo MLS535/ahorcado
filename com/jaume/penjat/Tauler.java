@@ -12,12 +12,26 @@ public class Tauler {
     public String letra;
     public String paraula;
     public Integer intents;
+   public char[] paraulaSecreta;
+    public String[] palabraEndevinada;
 
+    public void setParaulaSecreta(char[] paraulaSecreta) {
+        this.paraulaSecreta = paraulaSecreta;
+    }
 
-    public Tauler(String letra, String paraula, Integer intents, String[] paraulaSecreta, String[] palabraEndevinada) {
+    public void setPalabraEndevinada(String[] palabraEndevinada) {
+        this.palabraEndevinada = palabraEndevinada;
+    }
+
+    public Tauler(){
+
+    }
+    public Tauler(String letra, String paraula, Integer intents, char[] paraulaSecreta, String[] palabraEndevinada) {
         this.letra = letra;
         this.paraula = paraula;
         this.intents = intents;
+        this.paraulaSecreta = paraulaSecreta;
+        this.palabraEndevinada = palabraEndevinada;
     }
 
     //getters de los atributos
@@ -46,13 +60,13 @@ public class Tauler {
     }
 
 
-    public void inicialitzarPartida(String paraula, Integer intents) {
-        char parauladividida = paraula.charAt(0);
-        this.setParaula(paraula);
-        this.setIntents(intents);
+    public void inicialitzarPartida(String paraula, Integer vidas) {
+        char[] parole = paraula.toCharArray();
+        setParaulaSecreta(parole);
+        setIntents(vidas);
     }
 
-    public String[] getParaulaSecreta() {
+    public char[] getParaulaSecreta() {
         return paraulaSecreta;
     }
 
@@ -89,7 +103,7 @@ public class Tauler {
 
 
     //imprimir estoy segura que esta bien. fijate que se crean _ cuando lo aciertas Pero si lo convertimos en VOID explotan 5 errores.
-    public char imprimir() {
+    public String imprimir() {
         for (int i = 0; i < palabraEndevinada.length; i++) {
             if (palabraEndevinada[i].equals("")) {
                 System.out.print("_");
@@ -97,36 +111,29 @@ public class Tauler {
                 System.out.print(palabraEndevinada[i]);
             }
         }
+        return imprimir();
     }
 
     /*TODO no entiendo porque pero no me coge el restarIntent grrrrr ALOMEJOR DEBE IR DENTRO O ANTES?*/
-    private Integer restarIntent() {
-             x = this.getParaula();
-            if (letra == palabraEndevinada[j]) {
-                System.out.println("No has fallado la respuesta es correcta");
-            } else {
-                Integer restar = Integer.parseInt(String.valueOf(intents)) - 1;
-                System.out.println("Has fallado y tienes" + restar);
-            }
-
+    public void restarIntent() {
+            Integer restarIntent=intents--;
     }
 
     /*TODO Esta mal, pero debería ser te quedan intents X de X. me molaria coger restarIntent para aprovecharlo... Pero no se como hacerlo */
-    public boolean imprimirVides() {
-            /*if () {
-                return true;
-            } else
-                return false;*/
-        return imprimirVides(); //lo he hecho asi para que no este en rojo
+    public String imprimirVides() {
+        String vidilla = String.format("Te quedan %s vidillas ", intents);
+        if (1 == intents) vidilla = String.format("Te quedan %s vidilla", intents);
+        return vidilla;
     }
 
 
     // Este ya estaría ! :D
     public boolean hasGuanyat() {
-        if (paraulaSecreta == palabraEndevinada) {
+       /* if (paraulaSecreta == palabraEndevinada) {
             return true;
         } else
-            return false;
+            return false;*/
+        return hasGuanyat();
     }
 
 }
