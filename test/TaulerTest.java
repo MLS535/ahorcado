@@ -10,7 +10,7 @@ class TaulerTest {
 
     private Tauler tauler;
 
-    @Test
+    @BeforeEach
     void reiniciar(){
         this.tauler = new Tauler();
         this.tauler.inicialitzarPartida("paraula", 4);
@@ -28,7 +28,7 @@ class TaulerTest {
 
     @Test
     void verificarEntradaIncorrecte() {
-        assertEquals("Lletra incorrecta",this.tauler.verificar("ll"));
+        assertEquals("Lletra incorrecte",this.tauler.verificar("ll"));
     }
 
     @Test

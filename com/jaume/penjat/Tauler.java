@@ -9,30 +9,34 @@ package com.jaume.penjat;
 
 public class Tauler {
 
-    public String letra;
-    public String paraula;
-    public Integer intents;
-   public char[] paraulaSecreta;
-    public String[] palabraEndevinada;
+    private String letra;
+    private Integer vidas;
+    private String paraula;
+    private Integer intents;
+    private char[] paraulaSecreta;
+    private String[] palabraEndevinada;
+    public Tauler(){
+
+    }
+    public Tauler(String letra, Integer vidas, String paraula, Integer intents, char[] paraulaSecreta, String[] palabraEndevinada) {
+        this.letra = letra;
+        this.vidas = vidas;
+        this.paraula = paraula;
+        this.intents = intents;
+        this.paraulaSecreta = paraulaSecreta;
+        this.palabraEndevinada = palabraEndevinada;
+    }
 
     public void setParaulaSecreta(char[] paraulaSecreta) {
         this.paraulaSecreta = paraulaSecreta;
+        this.palabraEndevinada = new String[paraulaSecreta.length]; //aquí dará null
     }
 
     public void setPalabraEndevinada(String[] palabraEndevinada) {
         this.palabraEndevinada = palabraEndevinada;
     }
 
-    public Tauler(){
 
-    }
-    public Tauler(String letra, String paraula, Integer intents, char[] paraulaSecreta, String[] palabraEndevinada) {
-        this.letra = letra;
-        this.paraula = paraula;
-        this.intents = intents;
-        this.paraulaSecreta = paraulaSecreta;
-        this.palabraEndevinada = palabraEndevinada;
-    }
 
     //getters de los atributos
 
@@ -52,6 +56,7 @@ public class Tauler {
 
     public void setIntents(Integer intents) {
         this.intents = intents;
+        this.vidas = intents;
     }
 
     public String setLetra(String letra) {
@@ -59,7 +64,7 @@ public class Tauler {
         return letra;
     }
 
-
+//inicializamos la partida. Aquí como puedes ver convertimos palabra a char. Y además creamos vidas que será el parametro constante
     public void inicialitzarPartida(String paraula, Integer vidas) {
         char[] parole = paraula.toCharArray();
         setParaulaSecreta(parole);
@@ -74,18 +79,18 @@ public class Tauler {
         return intents;
     }
 
-    /*TODO siento que a verificar le falta algo más... Si te fijas, hay un else y luego un for... Quiza es demasiado largo Y DEBERIAMOS DIVIDIRLO EN DOS VERIFICAR??? */
+  /* */
     public String verificar (String letra) {
         String letraEnviada = setLetra(letra);
         if (letraEnviada.length() > 1) {
-            return ("Lletra incorrecta");
+            return ("Lletra incorrecte");
         } else {
             boolean exist = false;
             for (int j = 0; j < paraulaSecreta.length; j++) {
 
                 if (paraulaSecreta[j] == letra.charAt(0)) {
                     exist = true;
-                    palabraEndevinada[j] = letra;
+                    palabraEndevinada[j] = String.valueOf(letra.charAt(0));
                 }
             }
 
@@ -104,14 +109,17 @@ public class Tauler {
 
     //imprimir estoy segura que esta bien. fijate que se crean _ cuando lo aciertas Pero si lo convertimos en VOID explotan 5 errores.
     public String imprimir() {
+        String salida = "";
         for (int i = 0; i < palabraEndevinada.length; i++) {
-            if (palabraEndevinada[i].equals("")) {
-                System.out.print("_");
-            } else {
+            if (!(palabraEndevinada[i] == (null))) {
                 System.out.print(palabraEndevinada[i]);
+                salida += palabraEndevinada[i];
+            } else {
+                System.out.print("_");
+                salida += "_";
             }
         }
-        return imprimir();
+        return salida;
     }
 
     /*TODO no entiendo porque pero no me coge el restarIntent grrrrr ALOMEJOR DEBE IR DENTRO O ANTES?*/
@@ -121,19 +129,18 @@ public class Tauler {
 
     /*TODO Esta mal, pero debería ser te quedan intents X de X. me molaria coger restarIntent para aprovecharlo... Pero no se como hacerlo */
     public String imprimirVides() {
-        String vidilla = String.format("Te quedan %s vidillas ", intents);
-        if (1 == intents) vidilla = String.format("Te quedan %s vidilla", intents);
+        String vidilla = String.format("Et queden %s vides de %s", intents,intents);
+        if (1 == intents) vidilla = String.format("Et queda %s vida de %s",intents, vidas);
         return vidilla;
     }
 
 
     // Este ya estaría ! :D
     public boolean hasGuanyat() {
-       /* if (paraulaSecreta == palabraEndevinada) {
+        if (String.valueOf(paraulaSecreta).equals(String.join("",palabraEndevinada))){
             return true;
-        } else
-            return false;*/
-        return hasGuanyat();
+        }else
+            return false;
     }
 
 }
